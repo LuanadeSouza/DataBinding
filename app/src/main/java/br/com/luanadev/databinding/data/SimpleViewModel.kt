@@ -1,21 +1,21 @@
-package br.com.luanadev.databinding.ui
+package br.com.luanadev.databinding.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import br.com.luanadev.databinding.ui.Popularity
 
-class PlainViewModel : ViewModel() {
-
+class SimpleViewModelSolution : ViewModel() {
     private val _name = MutableLiveData("Ada")
+    private val _lastName = MutableLiveData("Lovelace")
+    private val _likes =  MutableLiveData(0)
+
     val name: LiveData<String> = _name
-
-    private val _lastName = MutableLiveData("LoveLace")
     val lastName: LiveData<String> = _lastName
-
-    private val _likes = MutableLiveData(0)
     val likes: LiveData<Int> = _likes
 
+    // popularity is exposed as LiveData using a Transformation instead of a @Bindable property.
     val popularity: LiveData<Popularity> = Transformations.map(_likes) {
         when {
             it > 9 -> Popularity.STAR
@@ -27,10 +27,4 @@ class PlainViewModel : ViewModel() {
     fun onLike() {
         _likes.value = (_likes.value ?: 0) + 1
     }
-}
-
-enum class Popularity {
-    NORMAL,
-    POPULAR,
-    STAR
 }

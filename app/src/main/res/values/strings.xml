@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DataBinding</string>
+    <string name="app_name">Likes</string>
     <string name="name">Name</string>
     <string name="last_name">Last Name</string>
     <string name="likes">Likes</string>
