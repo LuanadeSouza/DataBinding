@@ -11,3 +11,5 @@ que funciona muito bem com Data Binding.
 O Android se comunica para frente e para trás com o View.  
 O View observa o ViewModel e envia ações do usuário para ele.
 Fora da camada de apresentação, existem outras camadas representadas por interatores ou um repositório.
+
+<img width="250" src="https://user-images.githubusercontent.com/49947803/125300229-34c89d80-e300-11eb-9b3e-b08fea585343.gif">
