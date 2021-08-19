@@ -15,7 +15,6 @@ class SimpleViewModelSolution : ViewModel() {
     val lastName: LiveData<String> = _lastName
     val likes: LiveData<Int> = _likes
 
-    // popularity is exposed as LiveData using a Transformation instead of a @Bindable property.
     val popularity: LiveData<Popularity> = Transformations.map(_likes) {
         when {
             it > 9 -> Popularity.STAR
